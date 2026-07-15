@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: Test-DjangoApp
+  repository: test-django-app
   tag: "latest"
 
 service:
