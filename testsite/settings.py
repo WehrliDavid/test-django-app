@@ -116,8 +116,15 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# The secret key
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+def get_bool_env(name, default=False):
+    value = os.environ.get(name)
+    if value is None:
+        return default
+    return str(value).strip().lower() in {'1', 'true', 'yes', 'on'}
 
-DEBUG =bool(os.environ.get('DEBUG',default=0))
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS','').split(',')
+
+# The secret key
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-ab0yhz-!e98bd7=i+npc6e$ep1eh3wzp&@qavz^9kei07xylie')
+
+DEBUG = get_bool_env('DEBUG', default=False)
+ALLOWED_HOSTS = [host.strip() for host in os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',') if host.strip()]
