@@ -1,10 +1,8 @@
 replicaCount: 1
 
 image:
-  repository: django-app
+  repository: Test-DjangoApp
   tag: "latest"
-  pullPolicy: IfNotPresent
-  pullSecrets: []
 
 service:
   type: LoadBalancer
