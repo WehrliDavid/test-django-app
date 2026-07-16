@@ -38,3 +38,4 @@ resources:
 
 probes:
   enabled: true
+  path: /polls/health
