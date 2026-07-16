@@ -3,6 +3,9 @@ replicaCount: 1
 image:
   repository: docker-agi.355592e.registry.nineapis.ch/test-django-app
   tag: "latest"
+  pullPolicy: IfNotPresent
+  pullSecrets:
+    - name: regcred
 
 service:
   type: LoadBalancer
