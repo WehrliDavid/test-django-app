@@ -1,9 +1,0 @@
-.git
-__pycache__
-*.pyc
-venv/
-.venv/
-*.sqlite3
-.env
-node_modules/
-.idea

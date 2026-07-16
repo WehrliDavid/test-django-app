@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: test-django-app
+  repository: docker-agi.355592e.registry.nineapis.ch/test-django-app
   tag: "latest"
 
 service:
