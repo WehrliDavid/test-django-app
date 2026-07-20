@@ -8,16 +8,16 @@ image:
     - name: regcred
 
 service:
-  type: LoadBalancer
+  type: ClusterIP
   port: 80
-  targetPort: 8000
+  targetPort: http
 
 ingress:
-  enabled: false
-  className: ""
+  enabled: true
+  className: nginx
   annotations: {}
   hosts:
-    - host: django.example.com
+    - host: ""
       paths:
         - path: /
           pathType: Prefix
@@ -39,3 +39,9 @@ resources:
 probes:
   enabled: true
   path: /polls/health
+
+serviceAccount:
+  create: true
+  name: ""
+  imagePullSecrets:
+    - name: regcred
